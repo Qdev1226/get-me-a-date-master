@@ -1,0 +1,34 @@
+<!--
+  ~ Copyright (c) 2017, Hugo Freire <hugo@exec.sh>.
+  ~
+  ~ This source code is licensed under the license found in the
+  ~ LICENSE.md file in the root directory of this source tree.
+  -->
+
+<md-select id="channel" placeholder="Channel" (change)="setPageCriterion($event)">
+  <md-option *ngFor="let channelCriterion of availableChannelCriteria" [value]="channelCriterion.value">
+    {{ channelCriterion.label }}
+  </md-option>
+</md-select>
+
+<md-select id="my-action" placeholder="My action" (change)="setPageCriterion($event)">
+  <md-option *ngFor="let actionCriterion of availableMyActionCriteria" [value]="actionCriterion.value">
+    {{ actionCriterion.label }}
+  </md-option>
+</md-select>
+
+<md-select id="their-action" placeholder="Their action" (change)="setPageCriterion($event)">
+  <md-option *ngFor="let actionCriterion of availableTheirActionCriteria" [value]="actionCriterion.value">
+    {{ actionCriterion.label }}
+  </md-option>
+</md-select>
+
+<md-select id="sort" placeholder="Sort" (change)="setPageSort($event)">
+  <md-option *ngFor="let sort of availableSorts" [value]="sort.value">
+    {{ sort.label }}
+  </md-option>
+</md-select>
+
+<md-input-container>
+  <input #name mdInput placeholder="Name" (keyup.enter)="setPageCriterion({ value: { name: name.value || undefined }})">
+</md-input-container>

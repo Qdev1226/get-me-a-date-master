@@ -1,0 +1,19 @@
+<!--
+  ~ Copyright (c) 2017, Hugo Freire <hugo@exec.sh>.
+  ~
+  ~ This source code is licensed under the license found in the
+  ~ LICENSE.md file in the root directory of this source tree.
+  -->
+
+<md-card id="channels">
+    <md-card-title>Channels</md-card-title>
+    <md-card-content>
+        <md-list>
+            <md-list-item *ngFor="let channel of channels">
+                <md-slide-toggle [checked]="channel.isEnabled" (change)="toggleChannel(channel)" color="primary">{{
+                  channel.name | titlecase }}
+                </md-slide-toggle>
+            </md-list-item>
+        </md-list>
+    </md-card-content>
+</md-card>

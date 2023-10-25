@@ -1,0 +1,190 @@
+/*!
+ * Copyright (c) 2017, Hugo Freire <hugo@exec.sh>.
+ *
+ * This source code is licensed under the license found in the
+ * LICENSE.md file in the root directory of this source tree.
+ */
+@import '../../../../node_modules/@angular/material/_theming';
+
+@include mat-core();
+$candy-app-primary: mat-palette($mat-pink, 700, 500, 900);
+$candy-app-accent: mat-palette($mat-blue-grey, A200, A100, A400);
+$candy-app-warn: mat-palette($mat-deep-orange);
+$candy-app-theme: mat-dark-theme($candy-app-primary, $candy-app-accent, $candy-app-warn);
+@include angular-material-theme($candy-app-theme);
+
+body {
+  font-family: $mat-font-family;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.mat-dialog-container {
+  color: rgba(165, 165, 165, 1);
+
+  .mat-line {
+    font-size: 14px;
+  }
+}
+
+.mat-sidenav {
+  width: 200px;
+}
+
+.mat-dialog-title {
+  color: #cacaca;
+}
+
+.mat-progress-bar-buffer {
+  background-color: rgba(66, 66, 66, 1);
+}
+
+#channels {
+  md-slide-toggle {
+    margin-bottom: 10px;
+  }
+}
+
+/*
+#settings {
+  .mat-slider-thumb-label {
+    transform: rotate(45deg) !important;
+    border-radius: 50% 50% 0 !important;
+  }
+
+  .mat-slider-thumb {
+    transform: scale(0) !important;
+  }
+
+  .mat-slider-thumb-label-text {
+    opacity: 1 !important;
+  }
+} */
+
+#stats {
+  margin: 40px;
+}
+
+#recommendations {
+  margin: 40px;
+
+  #sort {
+    width: 240px;
+  }
+
+  md-card {
+    z-index: 1;
+
+    md-grid-list {
+      margin-top: 20px;
+    }
+
+    .tint {
+      max-height: 42px;
+      position: relative;
+      float: left;
+      cursor: pointer;
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: all .3s linear;
+      }
+
+      &:hover:before {
+        background: none;
+      }
+
+      & > img {
+        width: 42px;
+      }
+    }
+
+    .isMachinePass:before {
+      background: rgba(36, 36, 36, 1);
+    }
+
+    .isHumanPass:before {
+      background: rgba(255, 0, 21, 0.5);
+    }
+
+    .isMachineLike:before {
+      background: rgba(194, 24, 91, 0.6);
+    }
+
+    .isHumanLike:before {
+      background: rgba(0, 255, 0, 0.5);
+    }
+
+    .notDecided {
+      &:before {
+        background: rgba(48, 48, 48, 0.8);
+      }
+    }
+
+    .thumbnail {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: -1;
+    }
+
+    pagination-controls {
+      text-align: center;
+    }
+  }
+}
+
+#recommendation-dialog {
+  [md-dialog-title] {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+
+    .md-dialog-title-left {
+      flex: 1 1 auto;
+
+      h2 {
+        display: inline-block;
+        margin: 0;
+        font-size: 26px;
+      }
+
+      md-icon {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 15px;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 7px;
+  }
+
+  h6 {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .thumbnail {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+}
+
+#recommendations-list {
+  md-spinner {
+    margin: 30px auto 30px auto;
+  }
+}
